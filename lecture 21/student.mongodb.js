@@ -34,4 +34,13 @@ use("web_dev");
 
 // db.students.updateOne({ name: "Bob" }, { $set: { age: 20 } });
 
-db.students.deleteOne({ name: "Alice" });
+// db.students.deleteOne({ name: "Alice" });
+// db.students.find({}, { name: 1, rollno: 1, age: 1, course: 1 });
+// db.students.find().skip(1).limit(2);
+
+//question: find student where age 20 or course computer science and sort in desending order by his marks and limit it to 2 with skipping one value.
+
+db.students
+  .find({ age: 20, course: "Computer Science" })
+  .sort({ marks: -1 })
+  .limit(2);
