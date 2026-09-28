@@ -44,3 +44,9 @@ db.students
   .find({ age: 20, course: "Computer Science" })
   .sort({ marks: -1 })
   .limit(2);
+
+db.students
+  .find({ $or: [{ age: 20 }, { course: "Computer Science" }] })
+  .sort({ marks: -1 })
+  .skip(1)
+  .limit(2);
